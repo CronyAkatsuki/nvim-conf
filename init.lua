@@ -19,7 +19,10 @@ require('nv-treesitter')
 require('nv-utils')
 
 -- lsp
--- require('lsp')
+require('lsp')
+require('lsp.bash-ls')
+require('lsp.cpp-ls')
+require('lsp.css-ls')
 require('lsp.lua-ls')
 
 -- vimscript only
