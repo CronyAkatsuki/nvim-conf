@@ -27,15 +27,12 @@ return require('packer').startup(function()
         use 'rafamadriz/friendly-snippets'
         -- debugging
         use "mfussenegger/nvim-dap"
-        -- theme
-        use 'fneu/breezy'
         -- tree sitter
         use "nvim-treesitter/nvim-treesitter"
         use 'windwp/nvim-ts-autotag'
         -- autopairs
         use 'windwp/nvim-autopairs'
         -- nice bufferbar
-        use "romgrk/barbar.nvim"
         -- Icons
         use "kyazdani42/nvim-web-devicons"
         -- easy commenting
@@ -45,10 +42,14 @@ return require('packer').startup(function()
         -- git signs
         use 'lewis6991/gitsigns.nvim'
         use 'nvim-lua/plenary.nvim'
-        
-        use 'ChristianChiarulli/dashboard-nvim'
+
+        use 'glepnir/dashboard-nvim'
         use 'kevinhwang91/nvim-bqf'
 
         -- colors are mine
         use 'norcalli/nvim-colorizer.lua'
+	-- theme
+	use {'dracula/vim', as =  'dracula'}
+        -- buffer line
+        use 'jose-elias-alvarez/buftabline.nvim'
 end)

@@ -19,6 +19,5 @@ vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 
 -- buffer movement with tab
-vim.api.nvim_set_keymap('n', '<TAB>', 'bnext<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<S-TAB>', 'bprevious<CR>', { noremap = true, silent = true})
-
+-- vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprev<CR>', { noremap = true, silent = true })

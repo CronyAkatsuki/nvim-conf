@@ -10,5 +10,5 @@ require'lspconfig'.solargraph.setup {
 
         })
     },
-    filetypes = "ruby",
+    filetypes = {"ruby"},
 }
