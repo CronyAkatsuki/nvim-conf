@@ -19,17 +19,6 @@ vim.g.dashboard_custom_section = {
     e = {description = {'  Marks              '}, command = 'Telescope marks'}
 }
 
--- file_browser = {description = {' File Browser'}, command = 'Telescope find_files'},
-
--- vim.g.dashboard_custom_shortcut = {
---     a = 'f',
---     find_word = 'SPC f a',
---     last_session = 'SPC s l',
---     new_file = 'SPC c n',
---     book_marks = 'SPC f b'
--- }
--- find_history = 'SPC f h',
-
 vim.api.nvim_set_keymap('n', '<Leader>ss', ':<C-u>SessionSave<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>sl', ':<C-u>SessionLoad<CR>', { noremap = true, silent = true})
 

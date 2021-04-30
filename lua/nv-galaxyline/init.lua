@@ -1,23 +1,23 @@
 local gl = require('galaxyline')
 local colors = {
     -- bg = '#2E2E2E',
-    bg = '#343746',
-    yellow = '#FFFFA5',
-    dark_yellow = '#F1FA8C',
-    cyan = '#8BE9FD',
-    green = '#50FA7B',
-    light_green = '#69FF94',
-    string_orange = '#FFB86C',
-    orange = '#FFB86C',
-    purple = '#BD93F9',
-    magenta = '#FF79C6',
-    grey = '#F8F8F2',
-    blue = '#8BE9FD',
-    vivid_blue = '#6272A4',
-    light_blue = '#A4FFFF',
-    red = '#FF5555',
-    error_red = '#6272A4',
-    info_yellow = '#FFFFA5'
+    bg = '#3e4452',
+    yellow = '#e5c07b',
+    dark_yellow = '#d19a66',
+    cyan = '#8abeb7',
+    green = '#98c379',
+    light_green = '#50a14f',
+    string_orange = '#c18401',
+    orange = '#d19a66',
+    purple = '#a626a4',
+    magenta = '#c678dd',
+    grey = '#828997',
+    blue = '#61afef',
+    vivid_blue = '#528bff',
+    light_blue = '#72bef2',
+    red = '#e88388',
+    error_red = '#e06c75',
+    info_yellow = '#f2e5bc'
 }
 local condition = require('galaxyline.condition')
 local gls = gl.section
@@ -76,7 +76,7 @@ gls.left[3] = {
         condition = condition.check_git_workspace,
         separator = ' ',
         separator_highlight = {'NONE', colors.bg},
-        highlight = {colors.grey, colors.bg}
+        highlight = {colors.cyan, colors.bg}
     }
 }
 

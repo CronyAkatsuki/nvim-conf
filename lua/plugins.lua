@@ -42,14 +42,16 @@ return require('packer').startup(function()
         -- git signs
         use 'lewis6991/gitsigns.nvim'
         use 'nvim-lua/plenary.nvim'
-
         use 'glepnir/dashboard-nvim'
         use 'kevinhwang91/nvim-bqf'
-
         -- colors are mine
         use 'norcalli/nvim-colorizer.lua'
-	-- theme
-	use {'dracula/vim', as =  'dracula'}
+        -- theme
+        use {'dracula/vim', as =  'dracula'}
         -- buffer line
         use 'jose-elias-alvarez/buftabline.nvim'
+        -- rust tools
+        use 'simrat39/rust-tools.nvim'
+        -- snippets_nvim
+        use 'norcalli/snippets.nvim'
 end)

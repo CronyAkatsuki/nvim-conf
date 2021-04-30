@@ -14,10 +14,9 @@ require('nv-dashboard')
 require('nv-galaxyline')
 require('nv-gitsigns')
 require('nv-nvimtree')
+require('nv-rusttools')
 require('nv-telescope')
 require('nv-treesitter')
-require('nv-utils')
-
 
 -- lsp
 require('lsp')
