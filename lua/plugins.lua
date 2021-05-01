@@ -48,7 +48,7 @@ return require('packer').startup(function()
 	-- colors are mine
 	use 'norcalli/nvim-colorizer.lua'
 	-- theme
-	use {'dracula/vim', as =  'dracula'}
+	use {'dracula/vim', as = 'dracula'}
 	-- buffer line
 	use 'jose-elias-alvarez/buftabline.nvim'
 	-- terminal toggle
@@ -57,4 +57,11 @@ return require('packer').startup(function()
 	use "kdav5758/TrueZen.nvim"
 	-- rainbow parantheses
 	use "p00f/nvim-ts-rainbow"
+	-- markdown preview in buffer
+	use { 'npxbr/glow.nvim', run = ':GlowInstall'}
+        -- I have the power of tetris
+        use 'alec-gibson/nvim-tetris'
+        -- see cursor easily
+        use {'edluffy/specs.nvim'}
+		use 'folke/lsp-colors.nvim'
 end)
