@@ -51,6 +51,10 @@ return require('packer').startup(function()
         use {'dracula/vim', as =  'dracula'}
         -- buffer line
         use 'jose-elias-alvarez/buftabline.nvim'
-		-- terminal toggle
-	    use 's1n7ax/nvim-terminal'
+	-- terminal toggle
+	use 's1n7ax/nvim-terminal'
+	-- indentliand and blanklike
+	use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+	-- zen mode
+	use "kdav5758/TrueZen.nvim"
 end)
