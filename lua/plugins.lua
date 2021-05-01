@@ -17,10 +17,13 @@ return require('packer').startup(function()
         use 'kyazdani42/nvim-tree.lua'
         -- lsp support
         use 'neovim/nvim-lspconfig'
-        use "glepnir/lspsaga.nvim"
+        -- rust tools
+        use 'simrat39/rust-tools.nvim'
         -- telescope
         use "nvim-lua/popup.nvim"
+        use 'nvim-lua/plenary.nvim'
         use "nvim-telescope/telescope.nvim"
+        use "glepnir/lspsaga.nvim"
         -- completion support
         use 'hrsh7th/nvim-compe'
         use 'hrsh7th/vim-vsnip'
@@ -32,7 +35,6 @@ return require('packer').startup(function()
         use 'windwp/nvim-ts-autotag'
         -- autopairs
         use 'windwp/nvim-autopairs'
-        -- nice bufferbar
         -- Icons
         use "kyazdani42/nvim-web-devicons"
         -- easy commenting
@@ -41,7 +43,6 @@ return require('packer').startup(function()
         use 'glepnir/galaxyline.nvim'
         -- git signs
         use 'lewis6991/gitsigns.nvim'
-        use 'nvim-lua/plenary.nvim'
         use 'glepnir/dashboard-nvim'
         use 'kevinhwang91/nvim-bqf'
         -- colors are mine
@@ -50,8 +51,6 @@ return require('packer').startup(function()
         use {'dracula/vim', as =  'dracula'}
         -- buffer line
         use 'jose-elias-alvarez/buftabline.nvim'
-        -- rust tools
-        use 'simrat39/rust-tools.nvim'
-        -- snippets_nvim
-        use 'norcalli/snippets.nvim'
+		-- terminal toggle
+	    use 's1n7ax/nvim-terminal'
 end)
