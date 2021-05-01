@@ -4,6 +4,11 @@ require'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true -- false will disable the whole extension
     },
+	rainbow = {
+		enable = true,
+		extended_mode = true,
+		max_file_lines = 1000,
+	},
     -- indent = {enable = true, disable = {"python", "html", "javascript"}},
     -- TODO seems to be broken
     indent = {enable = true},
