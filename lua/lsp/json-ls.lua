@@ -1,6 +1,6 @@
 -- npm install -g vscode-json-languageserver
 require'lspconfig'.jsonls.setup {
-    cmd = { "/usr/bin/vscode-json-languageserver", "--stdio" },
+    cmd = { "vscode-json-languageserver", "--stdio" },
     on_attach = require'lsp'.common_on_attach,
 
     commands = {
