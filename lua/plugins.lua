@@ -32,7 +32,6 @@ return require('packer').startup(function()
 		use "mfussenegger/nvim-dap"
 		-- tree sitter
 		use "nvim-treesitter/nvim-treesitter"
-		use 'windwp/nvim-ts-autotag'
 		-- autopairs
 		use 'windwp/nvim-autopairs'
 		-- Icons
