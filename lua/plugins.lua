@@ -48,7 +48,7 @@ return require('packer').startup(function()
 		-- colors are mine
 		use 'norcalli/nvim-colorizer.lua'
 		-- theme
-		use {'dracula/vim', as = 'dracula'}
+		use 'Mofiqul/dracula.nvim'
 		use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 		-- buffer line
 		use 'jose-elias-alvarez/buftabline.nvim'
