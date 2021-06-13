@@ -1,7 +1,7 @@
 -- general settings
 require('colorscheme')
-require('keymaps')
 require('plugins')
+require('keymaps')
 require('settings')
 
 -- plugin settings
@@ -35,7 +35,7 @@ require('lsp.latex-ls')
 require('lsp.lua-ls')
 require('lsp.php-ls')
 require('lsp.python-ls')
--- require('lsp.ruby-ls')
+require('lsp.ruby-ls')
 require('lsp.rust-ls')
 require('lsp.vim-ls')
 require('lsp.yaml-ls')
