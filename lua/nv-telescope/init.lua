@@ -3,7 +3,7 @@ local actions = require('telescope.actions')
 ------------------------------
 -- '--color=never',
 require('telescope').setup {
-    defaults = {
+    config = {
         find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
         prompt_position = "bottom",
         -- prompt_prefix = " ",

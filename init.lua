@@ -1,8 +1,8 @@
 -- general settings
-require('colorscheme')
 require('plugins')
-require('keymaps')
+require('colorscheme')
 require('settings')
+require('keymaps')
 
 -- plugin settings
 require('nv-autopairs')
@@ -30,15 +30,15 @@ require('lsp.css-ls')
 require('lsp.golang-ls')
 require('lsp.html-ls')
 require('lsp.js-ts-ls')
-require('lsp.json-ls')
-require('lsp.latex-ls')
+-- require('lsp.json-ls')
+-- require('lsp.latex-ls')
 require('lsp.lua-ls')
 require('lsp.php-ls')
 require('lsp.python-ls')
-require('lsp.ruby-ls')
+-- require('lsp.ruby-ls')
 require('lsp.rust-ls')
 require('lsp.vim-ls')
-require('lsp.yaml-ls')
+-- require('lsp.yaml-ls')
 
 -- vimscript only
 vim.cmd('source ~/.config/nvim/vimscript/functions.vim')
