@@ -26,6 +26,7 @@ return require('packer').startup(function()
 		use "glepnir/lspsaga.nvim"
 		-- completion support
 		use 'hrsh7th/nvim-compe'
+		use {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'}
 		use 'hrsh7th/vim-vsnip'
 		use 'rafamadriz/friendly-snippets'
 		-- debugging
