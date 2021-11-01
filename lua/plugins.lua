@@ -13,56 +13,83 @@ vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto compile when th
 return require('packer').startup(function()
 		-- plugin manager
 		use 'wbthomason/packer.nvim'
+
 		-- file explorer
 		use 'kyazdani42/nvim-tree.lua'
+
 		-- lsp support
 		use 'neovim/nvim-lspconfig'
+
 		-- rust tools
-		use 'simrat39/rust-tools.nvim'
+		-- use 'simrat39/rust-tools.nvim'
+
 		-- telescope
 		use "nvim-lua/popup.nvim"
 		use 'nvim-lua/plenary.nvim'
 		use "nvim-telescope/telescope.nvim"
 		use "glepnir/lspsaga.nvim"
+
 		-- completion support
-		use 'hrsh7th/nvim-compe'
-		use {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'}
-		use 'hrsh7th/vim-vsnip'
-		use 'rafamadriz/friendly-snippets'
+		use 'hrsh7th/cmp-nvim-lsp'
+		use 'hrsh7th/cmp-buffer'
+		use 'hrsh7th/cmp-path'
+		use 'hrsh7th/cmp-cmdline'
+		use 'ray-x/cmp-treesitter'
+		use 'hrsh7th/nvim-cmp'
+
+		-- snippets
+		use 'dcampos/nvim-snippy'
+		use 'dcampos/cmp-snippy'
+
+		-- kind Icons
+		use 'onsails/lspkind-nvim'
+
 		-- debugging
-		use "mfussenegger/nvim-dap"
+		use 'mfussenegger/nvim-dap'
+		use 'theHamsta/nvim-dap-virtual-text'
+		use 'mfussenegger/nvim-dap-python'
+
 		-- tree sitter
 		use "nvim-treesitter/nvim-treesitter"
+
 		-- autopairs
 		use 'windwp/nvim-autopairs'
+
 		-- Icons
 		use "kyazdani42/nvim-web-devicons"
+
 		-- easy commenting
 		use "terrortylor/nvim-comment"
+
 		-- nice line
-		use 'glepnir/galaxyline.nvim'
+		use 'nvim-lualine/lualine.nvim'
+
 		-- git signs
 		use 'lewis6991/gitsigns.nvim'
+
+		-- nice start page
 		use 'glepnir/dashboard-nvim'
 		use 'kevinhwang91/nvim-bqf'
+
 		-- colors are mine
 		use 'norcalli/nvim-colorizer.lua'
+
 		-- theme
-		use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+		-- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+		use 'Mofiqul/dracula.nvim'
+
 		-- buffer line
-		use 'jose-elias-alvarez/buftabline.nvim'
+		use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+
 		-- terminal toggle
-		use 's1n7ax/nvim-terminal'
-		-- zen mode
-		use "kdav5758/TrueZen.nvim"
+		use {"akinsho/toggleterm.nvim"}
+
 		-- rainbow parantheses
 		use "p00f/nvim-ts-rainbow"
-		-- markdown preview in buffer
-		use { 'npxbr/glow.nvim', run = ':GlowInstall'}
+
 		-- I have the power of tetris
     use 'alec-gibson/nvim-tetris'
-    -- see cursor easily
-    use {'edluffy/specs.nvim'}
+
 		-- lspinstall
-		use 'kabouzeid/nvim-lspinstall'
+		-- use 'kabouzeid/nvim-lspinstall'
 end)
