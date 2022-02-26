@@ -1,5 +1,5 @@
 require'lspconfig'.sumneko_lua.setup {
-  cmd = { 'C:/LanguageServers/lua-language-server/bin/Windows/lua-language-server.exe' };
+  cmd = { 'lua-language-server' };
   settings = {
     Lua = {
       runtime = {
