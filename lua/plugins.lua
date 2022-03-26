@@ -21,7 +21,7 @@ return require('packer').startup(function()
 		use 'neovim/nvim-lspconfig'
 
 		-- rust tools
-		-- use 'simrat39/rust-tools.nvim'
+		use 'simrat39/rust-tools.nvim'
 
 		-- telescope
 		use "nvim-lua/popup.nvim"
@@ -36,6 +36,7 @@ return require('packer').startup(function()
 		use 'hrsh7th/cmp-cmdline'
 		use 'ray-x/cmp-treesitter'
 		use 'hrsh7th/nvim-cmp'
+		use 'hrsh7th/cmp-nvim-lua'
 
 		-- snippets
 		use 'dcampos/nvim-snippy'
@@ -87,9 +88,15 @@ return require('packer').startup(function()
 		-- rainbow parantheses
 		use "p00f/nvim-ts-rainbow"
 
-		-- I have the power of tetris
-    use 'alec-gibson/nvim-tetris'
+		-- transparency
+		use "xiyaowong/nvim-transparent"
 
-		-- lspinstall
-		-- use 'kabouzeid/nvim-lspinstall'
+		-- automatically create directory on save
+		use 'jghauser/mkdir.nvim'
+
+		-- spellchecker
+		use 'lewis6991/spellsitter.nvim'
+
+		-- better search
+		use {'kevinhwang91/nvim-hlslens'}
 end)

@@ -1,6 +1,6 @@
 -- npm i -g pyright
 require'lspconfig'.pyright.setup {
-    cmd = {"pyright-langserver.cmd", "--stdio"},
+    cmd = {"pyright-langserver", "--stdio"},
     on_attach = require'lsp'.common_on_attach,
     handlers = {
         ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {

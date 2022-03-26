@@ -36,6 +36,8 @@ cmp.setup({
 						{ name = 'path' },
 				}, {
 						{ name = 'treesitter'}
+				}, {
+						{ name = 'nvim_lua'}
 				}),
 		formatting = {
 				format = require("lspkind").cmp_format({with_text = true, menu = ({
