@@ -76,8 +76,8 @@ return require('packer').startup(function()
 		use 'norcalli/nvim-colorizer.lua'
 
 		-- theme
-		-- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
-		use 'Mofiqul/dracula.nvim'
+		use { "ellisonleao/gruvbox.nvim" }
+		-- use 'Mofiqul/dracula.nvim'
 
 		-- buffer line
 		use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
@@ -87,9 +87,6 @@ return require('packer').startup(function()
 
 		-- rainbow parantheses
 		use "p00f/nvim-ts-rainbow"
-
-		-- transparency
-		use "xiyaowong/nvim-transparent"
 
 		-- automatically create directory on save
 		use 'jghauser/mkdir.nvim'

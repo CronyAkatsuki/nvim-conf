@@ -14,13 +14,11 @@ require('nv-dashboard')
 require('nv-devicons')
 require('nv-gitsigns')
 require('nv-hlslens')
--- require('nv-lspinstall')
 require('nv-lualine')
 require('nv-nvimtree')
 require('nv-spellsitter')
 require('nv-telescope')
 require('nv-toggleterm')
-require('nv-transparent')
 require('nv-treesitter')
 
 -- lsp
