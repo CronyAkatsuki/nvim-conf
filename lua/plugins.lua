@@ -86,7 +86,7 @@ return require('packer').startup(function()
             enable_treesitter = true,
             transparent_background = false,
             pumblend = {
-                enable = true,
+                enable = false,
                 transparency_amount = 20,
             },
             plugins_integrations = {
@@ -108,8 +108,6 @@ return require('packer').startup(function()
         })
 		end,
 	})
-
-	-- use { "ellisonleao/gruvbox.nvim" }
 
 	-- buffer line
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
