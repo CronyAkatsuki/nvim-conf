@@ -1,12 +1,23 @@
--- leader key
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
-vim.g.mapleader = ' '
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+vim.g.mapleader = " "
 
 -- no hl
-vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', { noremap = true, silent = true })
+map("n", "<Leader>h", ":set hlsearch!<CR>", opts)
 
 -- explorer
-vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+map("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
+
+-- better splits movement
+map("n", "<C-left>", "<C-w>h", opts)
+map("n", "<C-down>", "<C-w>j", opts)
+map("n", "<C-up>", "<C-w>k", opts)
+map("n", "<C-right>", "<C-w>l", opts)
+
+-- better indenting
+map("v", "<", "<gv", opts)
+map("v", ">", ">gv", opts)
 
 -- terminal keymaps
 vim.cmd([[
@@ -21,15 +32,40 @@ vim.cmd([[
   tnoremap <Esc> <C-\><C-n>
 ]])
 
--- better window movement
-vim.api.nvim_set_keymap('n', '<C-left>', '<C-w>h', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-down>', '<C-w>j', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-up>', '<C-w>k', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-right>', '<C-w>l', { silent = true })
+-- barbar mappings
 
--- better indenting
-vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
+-- Move to previous/next
+map("n", "<A-,>", ":BufferPrevious<CR>", opts)
+map("n", "<A-.>", ":BufferNext<CR>", opts)
+-- Re-order to previous/next
+map("n", "<A-<>", ":BufferMovePrevious<CR>", opts)
+map("n", "<A->>", " :BufferMoveNext<CR>", opts)
+-- Goto buffer in position...
+map("n", "<A-1>", ":BufferGoto 1<CR>", opts)
+map("n", "<A-2>", ":BufferGoto 2<CR>", opts)
+map("n", "<A-3>", ":BufferGoto 3<CR>", opts)
+map("n", "<A-4>", ":BufferGoto 4<CR>", opts)
+map("n", "<A-5>", ":BufferGoto 5<CR>", opts)
+map("n", "<A-6>", ":BufferGoto 6<CR>", opts)
+map("n", "<A-7>", ":BufferGoto 7<CR>", opts)
+map("n", "<A-8>", ":BufferGoto 8<CR>", opts)
+map("n", "<A-9>", ":BufferGoto 9<CR>", opts)
+map("n", "<A-0>", ":BufferLast<CR>", opts)
+-- Close buffer
+map("n", "<A-q>", ":BufferClose<CR>", opts)
+-- Wipeout buffer
+--                 :BufferWipeout<CR>
+-- Close commands
+--                 :BufferCloseAllButCurrent<CR>
+--                 :BufferCloseBuffersLeft<CR>
+--                 :BufferCloseBuffersRight<CR>
+-- Magic buffer-picking mode
+map("n", "<C-p>", ":BufferPick<CR>", opts)
+-- Sort automatically by...
+map("n", "<Space>bb", ":BufferOrderByBufferNumber<CR>", opts)
+map("n", "<Space>bd", ":BufferOrderByDirectory<CR>", opts)
+map("n", "<Space>bl", ":BufferOrderByLanguage<CR>", opts)
 
--- close current buffer
-vim.api.nvim_set_keymap('n', '<Leader>q', ':bdelete<CR>', { noremap = true, silent = true })
+-- Telescope mappings
+map("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)

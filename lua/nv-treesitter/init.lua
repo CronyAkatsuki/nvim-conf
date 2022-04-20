@@ -1,16 +1,34 @@
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    -- ignore_install = O.treesitter.ignore_install,
-    highlight = {
-        enable = true -- false will disable the whole extension
-    },
-	rainbow = {
+require("nvim-treesitter.configs").setup({
+	-- A list of parser names, or "all"
+	ensure_installed = { "lua", "python", "bash" },
+
+	-- Install parsers synchronously (only applied to `ensure_installed`)
+	sync_install = false,
+
+	highlight = {
 		enable = true,
-		extended_mode = true,
-		max_file_lines = 1000,
+		additional_vim_regex_highlighting = false,
 	},
-    -- indent = {enable = true, disable = {"python", "html", "javascript"}},
-    -- TODO seems to be broken
-    indent = {enable = true},
-    autotag = {enable = true},
-}
+	refactor = {
+		highlight_definitions = {
+			enable = true,
+			clear_on_cursor_move = true,
+		},
+		smart_rename = {
+			enable = true,
+			keymaps = {
+				smart_rename = "grr",
+			},
+		},
+		navigation = {
+			enable = true,
+			keymaps = {
+				-- goto_definition = "gnd",
+				-- list_definitions = "gnD",
+				-- list_definitions_toc = "gO",
+				goto_next_usage = "<a-+>",
+				goto_previous_usage = "<a-'>",
+			},
+		},
+	},
+})

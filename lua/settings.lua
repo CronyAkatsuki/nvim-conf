@@ -1,40 +1,34 @@
-vim.opt.hidden = true
-vim.opt.title = true
-vim.opt.ruler = true
-TERMINAL = vim.fn.expand('$TERMINAL')
-vim.cmd('let &titleold="'..TERMINAL..'"')
-vim.opt.titlestring="%<%F%=%l/%L - nvim"
-vim.wo.wrap = true
-vim.cmd('set whichwrap+=<,>,[,],h,l')
-vim.opt.pumheight = 10
-vim.opt.fileencoding = "utf-8"
-vim.opt.cmdheight = 2
-vim.opt.mouse = "a"
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.conceallevel = 0
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.colorcolumn = "999999"
-vim.opt.smarttab = true
-vim.bo.expandtab = true
-vim.bo.smartindent = true
-vim.opt.copyindent = true
-vim.opt.preserveindent = true
-vim.opt.autoindent = true
-vim.opt.laststatus = 2
-vim.wo.number = true
-vim.wo.cursorline = false
-vim.opt.showtabline = 2
-vim.opt.showmode = false
-vim.opt.backup = false
-vim.opt.writebackup = false
-vim.wo.signcolumn = "yes"
-vim.opt.updatetime = 200
-vim.opt.timeoutlen = 500
-vim.opt.clipboard = "unnamedplus"
-vim.opt.paste = false
-vim.opt.scrolloff = 10
-vim.opt.foldenable = true
-vim.cmd([[set foldtext=luaeval(\"require('doom.core.functions').sugar_folds()\")]])
+local set = vim.opt
+
+vim.notify = require("notify")
+
+set.expandtab = true
+set.smarttab = true
+set.shiftwidth = 4
+set.tabstop = 4
+
+set.hlsearch = true
+set.incsearch = true
+set.ignorecase = true
+set.smartcase = true
+
+set.splitbelow = true
+set.splitright = true
+set.wrap = true
+set.scrolloff = 5
+set.fileencoding = "utf-8"
+
+set.relativenumber = true
+set.cursorline = true
+
+set.termguicolors = true
+set.syntax = "on"
+
+set.hidden = true
+set.completeopt = "menuone,noselect"
+
+set.title = true
+set.titlestring = "%<%F%=%l/%L - nvim"
+
+set.mouse = "a"
+set.clipboard = "unnamedplus"

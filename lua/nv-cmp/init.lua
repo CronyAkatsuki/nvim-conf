@@ -1,76 +1,56 @@
-vim.o.completeopt = "menu,menuone,noselect"
-
--- Setup nvim-cmp.
-local cmp = require'cmp'
+-- luasnip setup
+local luasnip = require("luasnip")
+local cmp = require("cmp")
+local lspkind = require("lspkind")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = "racket"
 
 cmp.setup({
-		snippet = {
-			-- REQUIRED - you must specify a snippet engine
-			expand = function(args)
-				-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-				-- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-				-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-				require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 50,
+
+			before = function(entry, vim_item)
+				return vim_item
 			end,
-		},
-		mapping = {
-			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-			['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-			['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-			['<C-y>'] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
-			['<C-e>'] = cmp.mapping({
-				i = cmp.mapping.abort(),
-				c = cmp.mapping.close(),
-			}),
-			['<CR>'] = cmp.mapping.confirm({ select = true }),
-		},
-		sources = cmp.config.sources({
-						{ name = 'nvim_lsp' },
-						-- { name = 'vsnip' }, -- For vsnip users.
-						-- { name = 'luasnip' }, -- For luasnip users.
-						-- { name = 'ultisnips' }, -- For ultisnips users.
-						{ name = 'snippy' }, -- For snippy users.
-				}, {
-						{ name = 'buffer' },
-				}, {
-						{ name = 'path' },
-				}, {
-						{ name = 'treesitter'}
-				}, {
-						{ name = 'nvim_lua'}
-				}),
-		formatting = {
-				format = require("lspkind").cmp_format({with_text = true, menu = ({
-					buffer = "[Buffer]",
-					nvim_lsp = "[LSP]",
-					luasnip = "[LuaSnip]",
-					nvim_lua = "[Lua]",
-					latex_symbols = "[Latex]",
-				})}),
-		},
+		}),
+	},
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+	}),
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+	},
 })
-
--- Use buffer source for `/`.
-cmp.setup.cmdline('/', {
-		sources = {
-			{ name = 'buffer' }
-		}
-})
-
-
--- Use cmdline & path source for ':'.
-cmp.setup.cmdline(':', {
-		sources = cmp.config.sources({
-			{ name = 'path' }
-		}, {
-			{ name = 'cmdline' }
-		})
-})
-
---
-
--- Setup lspconfig.
--- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- require('lspconfig')[%YOUR_LSP_SERVER%].setup {
--- capabilities = capabilities
--- }
