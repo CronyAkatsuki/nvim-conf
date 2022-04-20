@@ -19,6 +19,9 @@ return require("packer").startup(function()
 	use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
+	use("hrsh7th/cmp-buffer") -- Buffer source for nvim-cmp
+	use("hrsh7th/cmp-path") -- Path source for nvim-cmp
+	use("hrsh7th/cmp-cmdline") -- cmdline source for nvim-cmp
 
 	-- kind Icons
 	use("onsails/lspkind-nvim")
