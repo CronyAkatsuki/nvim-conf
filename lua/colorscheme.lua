@@ -6,7 +6,7 @@ require("doom-one").setup({
 	transparent_background = false,
 	pumblend = {
 		enable = true,
-		transparency_amount = 20,
+		transparency_amount = 5,
 	},
 	plugins_integrations = {
 		neorg = false,
