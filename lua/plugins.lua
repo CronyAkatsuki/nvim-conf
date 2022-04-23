@@ -18,6 +18,7 @@ return require("packer").startup(function()
 	use("hrsh7th/cmp-buffer") --> Buffer source for nvim-cmp
 	use("hrsh7th/cmp-path") --> Path source for nvim-cmp
 	use("hrsh7th/cmp-cmdline") --> cmdline source for nvim-cmp
+    use("ray-x/cmp-treesitter") --> treesitter autocompletion support
 	use("onsails/lspkind-nvim") --> kind icons for completion
 
 	use("rcarriga/nvim-notify") --> notifications
