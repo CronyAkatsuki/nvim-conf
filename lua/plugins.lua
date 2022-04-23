@@ -1,80 +1,50 @@
 return require("packer").startup(function()
-	use("wbthomason/packer.nvim")
+	use("wbthomason/packer.nvim") --> update itself
 
-	-- theme
-	use("NTBBloodbath/doom-one.nvim")
+	use("NTBBloodbath/doom-one.nvim") --> theme
+	use("kyazdani42/nvim-web-devicons") --> icons
+	use("nvim-lualine/lualine.nvim") --> nice status line
+	use("romgrk/barbar.nvim") --> buffer/tab bar
 
-	-- file explorer
-	use("kyazdani42/nvim-tree.lua")
+	use("kyazdani42/nvim-tree.lua") --> file explorer
 
-	-- Icons
-	use("kyazdani42/nvim-web-devicons")
+	use("neovim/nvim-lspconfig") --> lsp config
+	use("williamboman/nvim-lsp-installer") --> installer for the lsp's
 
-	-- lsp support
-	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer")
+	use("hrsh7th/nvim-cmp") --> Autocompletion plugin
+	use("hrsh7th/cmp-nvim-lsp") --> LSP source for nvim-cmp
+	use("saadparwaiz1/cmp_luasnip") --> Snippets source for nvim-cmp
+	use("L3MON4D3/LuaSnip") --> Snippets plugin
+	use("hrsh7th/cmp-buffer") --> Buffer source for nvim-cmp
+	use("hrsh7th/cmp-path") --> Path source for nvim-cmp
+	use("hrsh7th/cmp-cmdline") --> cmdline source for nvim-cmp
+	use("onsails/lspkind-nvim") --> kind icons for completion
 
-	-- autocompletion section
-	use("hrsh7th/nvim-cmp") -- Autocompletion plugin
-	use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
-	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-	use("L3MON4D3/LuaSnip") -- Snippets plugin
-	use("hrsh7th/cmp-buffer") -- Buffer source for nvim-cmp
-	use("hrsh7th/cmp-path") -- Path source for nvim-cmp
-	use("hrsh7th/cmp-cmdline") -- cmdline source for nvim-cmp
+	use("rcarriga/nvim-notify") --> notifications
 
-	-- kind Icons
-	use("onsails/lspkind-nvim")
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) --> Treesitter support
+	use("nvim-treesitter/nvim-treesitter-refactor") --> refactoring support
 
-	-- notifications
-	use("rcarriga/nvim-notify")
+	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }) --> telescope
 
-	-- nice line
-	use("nvim-lualine/lualine.nvim")
+	use("norcalli/nvim-colorizer.lua") --> colors preview
 
-	-- nice bar
-	use("romgrk/barbar.nvim")
+	use("lukas-reineke/indent-blankline.nvim") --> indent line
 
-	-- treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use("nvim-treesitter/nvim-treesitter-refactor")
+	use({ "akinsho/toggleterm.nvim" }) --> terminal toggel
 
-	-- telescope
-	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
+	use("terrortylor/nvim-comment") --> better commenting
 
-	-- colors are mine
-	use("norcalli/nvim-colorizer.lua")
+	use("windwp/nvim-autopairs") --> great autopair support
 
-	-- indentline
-	use("lukas-reineke/indent-blankline.nvim")
+	use("lewis6991/gitsigns.nvim") --> git sings to show you what ypu changed you sneaky little bastard
 
-	-- terminal toggle
-	use({ "akinsho/toggleterm.nvim" })
+	use("jghauser/mkdir.nvim") --> create directory on save if it doesnt exist
 
-	-- easy commenting
-	use("terrortylor/nvim-comment")
+	use("fladson/vim-kitty") --> kitty terminal syntax highlighting
 
-	-- autopairs
-	use("windwp/nvim-autopairs")
-
-	-- git signs
-	use("lewis6991/gitsigns.nvim")
-
-	-- automatically create directory on save
-	use("jghauser/mkdir.nvim")
-
-	-- kitty term config highlights
-	use("fladson/vim-kitty")
-
-	-- nice start page
-	use("glepnir/dashboard-nvim")
+	use("glepnir/dashboard-nvim") --> nice start page
 	use("kevinhwang91/nvim-bqf")
 
-	-- null-ls
-	use("jose-elias-alvarez/null-ls.nvim")
+	use("jose-elias-alvarez/null-ls.nvim") --> additional support for lsp
 end)
-
--- return require('packer').startup(function()
---      -- rainbow parantheses
---      use "p00f/nvim-ts-rainbow"
--- end
