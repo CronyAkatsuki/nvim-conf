@@ -16,6 +16,7 @@ require("nv-indentline")
 require("nv-lualine")
 require("nv-null-ls")
 require("nv-nvimtree")
+require("nv-telescope")
 require("nv-toggleterm")
 require("nv-treesitter")
 

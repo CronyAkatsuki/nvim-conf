@@ -1,27 +1,68 @@
-require("doom-one").setup({
-	cursor_coloring = true,
-	terminal_colors = true,
-	italic_comments = true,
-	enable_treesitter = true,
+local catppuccin = require("catppuccin")
+
+-- configure it
+catppuccin.setup({
 	transparent_background = false,
-	pumblend = {
-		enable = true,
-		transparency_amount = 5,
+	term_colors = false,
+	styles = {
+		comments = "italic",
+		functions = "italic",
+		keywords = "italic",
+		strings = "NONE",
+		variables = "italic",
 	},
-	plugins_integrations = {
-		neorg = false,
-		barbar = true,
-		bufferline = false,
+	integrations = {
+		treesitter = true,
+		native_lsp = {
+			enabled = true,
+			virtual_text = {
+				errors = "italic",
+				hints = "italic",
+				warnings = "italic",
+				information = "italic",
+			},
+			underlines = {
+				errors = "underline",
+				hints = "underline",
+				warnings = "underline",
+				information = "underline",
+			},
+		},
+		lsp_trouble = false,
+		cmp = true,
+		lsp_saga = true,
 		gitgutter = false,
 		gitsigns = true,
 		telescope = true,
+		nvimtree = {
+			enabled = true,
+			show_root = false,
+			transparent_panel = false,
+		},
+		neotree = {
+			enabled = false,
+			show_root = false,
+			transparent_panel = false,
+		},
+		which_key = false,
+		indent_blankline = {
+			enabled = true,
+			colored_indent_levels = true,
+		},
+		dashboard = true,
 		neogit = false,
-		nvim_tree = true,
-		dashboard = false,
-		startify = false,
-		whichkey = false,
-		indent_blankline = true,
-		vim_illuminate = false,
-		lspsaga = false,
+		vim_sneak = false,
+		fern = false,
+		barbar = true,
+		bufferline = true,
+		markdown = true,
+		lightspeed = false,
+		ts_rainbow = false,
+		hop = false,
+		notify = true,
+		telekasten = true,
+		symbols_outline = true,
 	},
 })
+
+vim.cmd[[colorscheme catppuccin]]
