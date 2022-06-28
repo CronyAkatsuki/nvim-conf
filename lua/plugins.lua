@@ -58,4 +58,6 @@ return require("packer").startup(function()
 	use("jose-elias-alvarez/null-ls.nvim") --> additional support for lsp
 
 	use("mattn/emmet-vim") --> better web development
+
+    use("andweeb/presence.nvim") --> discord rich present
 end)
