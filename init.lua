@@ -1,8 +1,8 @@
 -- general settings
+require("plugins")
 require("settings")
 require("colorscheme")
 require("keymaps")
-require("plugins")
 
 -- plugin settings
 require("nv-autopairs")
@@ -16,6 +16,7 @@ require("nv-indentline")
 require("nv-lualine")
 require("nv-null-ls")
 require("nv-nvimtree")
+require("nv-presence")
 require("nv-telescope")
 require("nv-toggleterm")
 require("nv-treesitter")

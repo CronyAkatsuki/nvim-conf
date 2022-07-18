@@ -1,8 +1,9 @@
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim") --> update itself
 
-	use("NTBBloodbath/doom-one.nvim") --> theme
-    use("catppuccin/nvim") --> theme
+	-- use("NTBBloodbath/doom-one.nvim") --> theme
+	-- use("catppuccin/nvim") --> theme
+	use({ "mbrea-c/pywal.nvim", as = "pywal" }) --> theme
 
 	use("kyazdani42/nvim-web-devicons") --> icons
 	use("nvim-lualine/lualine.nvim") --> nice status line
@@ -31,7 +32,7 @@ return require("packer").startup(function()
 
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) --> Treesitter support
 	use("nvim-treesitter/nvim-treesitter-refactor") --> refactoring support
-    use("windwp/nvim-ts-autotag") --> autotagging support
+	use("windwp/nvim-ts-autotag") --> autotagging support
 
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }) --> telescope
 	use({ "nvim-telescope/telescope-ui-select.nvim" }) --> telescope picker
@@ -57,7 +58,7 @@ return require("packer").startup(function()
 
 	use("jose-elias-alvarez/null-ls.nvim") --> additional support for lsp
 
-	use("mattn/emmet-vim") --> better web development
+	-- use("mattn/emmet-vim") --> better web development
 
-    use("andweeb/presence.nvim") --> discord rich present
+	use("andweeb/presence.nvim") --> discord rich present
 end)

@@ -1,25 +1,24 @@
-vim.g.dashboard_custom_header = {
+local db = require('dashboard')
 
-	[[                    _         _]],
-	[[ _ __   ___ _ __ __| | __   _(_)_ __ ___]],
-	[[| '_ \ / _ \ '__/ _` | \ \ / / | '_ ` _ \]],
-	[[| | | |  __/ | | (_| |  \ V /| | | | | | |]],
-	[[|_| |_|\___|_|  \__,_|   \_/ |_|_| |_| |_|]],
+db.custom_center = {
+    {icon = '  ',
+    desc = 'Recently latest session                  ',
+    shortcut = 'SPC s l',
+    action ='SessionLoad'},
+    {icon = '  ',
+    desc = 'Recently opened files                   ',
+    action =  'DashboardFindHistory',
+    shortcut = 'SPC f h'},
+    {icon = '  ',
+    desc = 'Find  File                              ',
+    action = 'Telescope find_files find_command=rg,--hidden,--files',
+    shortcut = 'SPC f f'},
+    {icon = '  ',
+    desc ='File Browser                            ',
+    action =  'Telescope file_browser',
+    shortcut = 'SPC f b'},
+    {icon = '  ',
+    desc = 'Find  word                              ',
+    action = 'Telescope live_grep',
+    shortcut = 'SPC f w'},
 }
-
-vim.g.dashboard_default_executive = "telescope"
-
-vim.g.dashboard_custom_section = {
-	a = { description = { "  Find File          " }, command = "Telescope find_files" },
-	b = { description = { "  Recently Used Files" }, command = "Telescope oldfiles" },
-	c = { description = { "  Load Last Session  " }, command = "SessionLoad" },
-	d = { description = { "  Find Word          " }, command = "Telescope live_grep" },
-	e = { description = { "  Settings           " }, command = ":e ~/.config/nvim/init.lua" },
-	f = { description = { "  Marks              " }, command = "Telescope marks" },
-}
-
-vim.api.nvim_set_keymap("n", "<Leader>ss", ":<C-u>SessionSave<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>sl", ":<C-u>SessionLoad<CR>", { noremap = true, silent = true })
-
-vim.g.dashboard_session_directory = { "~/.cache/nvim/session" }
-vim.g.dashboard_custom_footer = { "chronytips.github.io" }
