@@ -32,3 +32,4 @@ set.titlestring = "%<%F%=%l/%L - nvim"
 
 set.mouse = "a"
 set.clipboard = "unnamedplus"
+set.guifont = {"FiraCode Nerd Font", "h12"}
