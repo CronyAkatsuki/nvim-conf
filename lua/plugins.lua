@@ -2,8 +2,10 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim") --> update itself
 
 	-- use("NTBBloodbath/doom-one.nvim") --> theme
-	-- use("catppuccin/nvim") --> theme
-	use({ "mbrea-c/pywal.nvim", as = "pywal" }) --> theme
+	use { "catppuccin/nvim", as = "catppuccin" } --> theme
+	-- use({ "mbrea-c/pywal.nvim", as = "pywal" }) --> theme
+
+    use("folke/which-key.nvim") --> which key
 
 	use("kyazdani42/nvim-web-devicons") --> icons
 	use("nvim-lualine/lualine.nvim") --> nice status line
@@ -41,17 +43,17 @@ return require("packer").startup(function()
 
 	use("lukas-reineke/indent-blankline.nvim") --> indent line
 
-	use({ "akinsho/toggleterm.nvim" }) --> terminal toggel
+	use({ "akinsho/toggleterm.nvim" }) --> terminal toggle
 
 	use("terrortylor/nvim-comment") --> better commenting
 
 	use("windwp/nvim-autopairs") --> great autopair support
 
-	use("lewis6991/gitsigns.nvim") --> git sings to show you what ypu changed you sneaky little bastard
+	use("lewis6991/gitsigns.nvim") --> git sings to show you what you changed you sneaky little bastard
 
 	use("jghauser/mkdir.nvim") --> create directory on save if it doesnt exist
 
-	use("fladson/vim-kitty") --> kitty terminal syntax highlighting
+	-- use("fladson/vim-kitty") --> kitty terminal syntax highlighting
 
 	use("glepnir/dashboard-nvim") --> nice start page
 	use("kevinhwang91/nvim-bqf")

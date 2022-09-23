@@ -29,7 +29,21 @@ end
 
 require("nvim-lsp-installer").setup({})
 
-local servers = { "pyright", "bashls", "ccls", "taplo", "eslint", "html", "cssls", "jsonls", "hls", "gopls" }
+local servers = {
+    "pyright",
+    "bashls",
+    "ccls",
+    "clangd",
+    "taplo",
+    "eslint",
+    "html",
+    "cssls",
+    "jsonls",
+    "hls",
+    "gopls",
+    "powershell_es",
+    "yamlls"
+}
 for _, lsp in pairs(servers) do
     require("lspconfig")[lsp].setup({
         on_attach = on_attach,

@@ -20,9 +20,10 @@ require("nv-presence")
 require("nv-telescope")
 require("nv-toggleterm")
 require("nv-treesitter")
+require("nv-whichkey")
 
 -- lsp
 require("lsp")
 
 -- vimscript only
-vim.cmd("source ~/.config/nvim/vimscript/functions.vim")
+vim.cmd("source ~/AppData/Local/nvim/vimscript/functions.vim")
