@@ -26,4 +26,4 @@ require("nv-whichkey")
 require("lsp")
 
 -- vimscript only
-vim.cmd("source ~/AppData/Local/nvim/vimscript/functions.vim")
+vim.cmd("source ~/.config/nvim/vimscript/functions.vim")

@@ -2,8 +2,9 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim") --> update itself
 
 	-- use("NTBBloodbath/doom-one.nvim") --> theme
-	use { "catppuccin/nvim", as = "catppuccin" } --> theme
-	-- use({ "mbrea-c/pywal.nvim", as = "pywal" }) --> theme
+	-- use { "catppuccin/nvim", as = "catppuccin" } --> theme
+	use({ "mbrea-c/pywal.nvim", as = "pywal" }) --> theme
+    -- use 'Mofiqul/adwaita.nvim'
 
     use("folke/which-key.nvim") --> which key
 
@@ -53,7 +54,7 @@ return require("packer").startup(function()
 
 	use("jghauser/mkdir.nvim") --> create directory on save if it doesnt exist
 
-	-- use("fladson/vim-kitty") --> kitty terminal syntax highlighting
+	use("fladson/vim-kitty") --> kitty terminal syntax highlighting
 
 	use("glepnir/dashboard-nvim") --> nice start page
 	use("kevinhwang91/nvim-bqf")
@@ -63,4 +64,6 @@ return require("packer").startup(function()
 	-- use("mattn/emmet-vim") --> better web development
 
 	use("andweeb/presence.nvim") --> discord rich present
+
+    use('ixru/nvim-markdown') --> great markdown support
 end)

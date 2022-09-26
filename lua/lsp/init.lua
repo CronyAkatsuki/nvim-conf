@@ -32,7 +32,7 @@ require("nvim-lsp-installer").setup({})
 local servers = {
     "pyright",
     "bashls",
-    "ccls",
+    -- "ccls",
     "clangd",
     "taplo",
     "eslint",
@@ -41,7 +41,7 @@ local servers = {
     "jsonls",
     "hls",
     "gopls",
-    "powershell_es",
+    -- "powershell_es",
     "yamlls"
 }
 for _, lsp in pairs(servers) do
