@@ -42,7 +42,8 @@ local servers = {
     "hls",
     "gopls",
     -- "powershell_es",
-    "yamlls"
+    "yamlls",
+    "vimls"
 }
 for _, lsp in pairs(servers) do
     require("lspconfig")[lsp].setup({

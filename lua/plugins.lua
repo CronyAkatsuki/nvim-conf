@@ -1,11 +1,8 @@
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim") --> update itself
 
-	-- use("NTBBloodbath/doom-one.nvim") --> theme
-	-- use { "catppuccin/nvim", as = "catppuccin" } --> theme
-	use({ "mbrea-c/pywal.nvim", as = "pywal" }) --> theme
-    -- use 'Mofiqul/adwaita.nvim'
-
+    use { "catppuccin/nvim", as = "catppuccin" } --> theme
+ 
     use("folke/which-key.nvim") --> which key
 
 	use("kyazdani42/nvim-web-devicons") --> icons
@@ -65,5 +62,5 @@ return require("packer").startup(function()
 
 	use("andweeb/presence.nvim") --> discord rich present
 
-    use('ixru/nvim-markdown') --> great markdown support
+    use("vimwiki/vimwiki") --> lets make a wiki
 end)

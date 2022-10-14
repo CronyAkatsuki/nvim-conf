@@ -27,3 +27,4 @@ require("lsp")
 
 -- vimscript only
 vim.cmd("source ~/.config/nvim/vimscript/functions.vim")
+vim.cmd("source ~/.config/nvim/vimscript/vimwiki.vim")
