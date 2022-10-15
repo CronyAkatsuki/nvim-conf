@@ -25,6 +25,10 @@ local config = {
             inactive = { c = { fg = colors.foreground, bg = colors.crust } },
         },
     },
+    extensions = {
+        'nvim-tree',
+        'toggleterm'
+    },
     sections = {
         lualine_a = {},
         lualine_b = {},
@@ -80,7 +84,7 @@ ins_left({
         }
         return { fg = mode_color[vim.fn.mode()] }
     end,
-    padding = { right = 1 },
+    padding = { right = 0 },
 })
 
 ins_left({
@@ -97,7 +101,7 @@ ins_left({
 
 ins_left({
     "diff",
-    symbols = { added = " ", modified = "柳 ", removed = " " },
+    symbols = { added = " ", modified = "柳", removed = " " },
     diff_color = {
         added = { fg = colors.teal },
         modified = { fg = colors.rosewater },
@@ -145,22 +149,29 @@ ins_left({
 })
 
 -- Add components to right sections
+ins_right({"location", color = { fg = colors.subtext0, gui = "bold" } })
+
+ins_right({"progress", color = { fg = colors.subtext0, gui = "bold" } })
+
+ins_right {
+  'filetype',
+  -- fmt = string.upper,
+  icons_enabled = false,
+  color = { fg = colors.teal, gui = 'bold' },
+}
+
 ins_right({
     "o:encoding",
     fmt = string.upper,
     cond = conditions.hide_in_width,
-    color = { fg = colors.subtext0, gui = "bold" },
+    color = { fg = colors.teal, gui = "bold" },
 })
 
-ins_right({
-    "fileformat",
-    fmt = string.upper,
-    icons_enabled = true,
-    color = { fg = colors.color1 },
-})
-
-ins_right({"location"})
-
-ins_right({"progress", color = { fg = colors.subtext0, gui = "bold" } })
+ins_right {
+  'fileformat',
+  -- fmt = string.upper,
+  icons_enabled = true,
+  color = { fg = colors.teal, gui = 'bold' },
+}
 
 lualine.setup(config)

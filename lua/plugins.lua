@@ -2,12 +2,11 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim") --> update itself
 
     use { "catppuccin/nvim", as = "catppuccin" } --> theme
- 
-    use("folke/which-key.nvim") --> which key
+    use("folke/which-key.nvim") --> help for my forgeting brain
 
 	use("kyazdani42/nvim-web-devicons") --> icons
 	use("nvim-lualine/lualine.nvim") --> nice status line
-	use("romgrk/barbar.nvim") --> buffer/tab bar
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
 	use("kyazdani42/nvim-tree.lua") --> file explorer
 
@@ -36,6 +35,7 @@ return require("packer").startup(function()
 
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }) --> telescope
 	use({ "nvim-telescope/telescope-ui-select.nvim" }) --> telescope picker
+    use("nvim-telescope/telescope-file-browser.nvim") --> telescope file browser
 
 	use("norcalli/nvim-colorizer.lua") --> colors preview
 
@@ -58,9 +58,14 @@ return require("packer").startup(function()
 
 	use("jose-elias-alvarez/null-ls.nvim") --> additional support for lsp
 
-	-- use("mattn/emmet-vim") --> better web development
-
 	use("andweeb/presence.nvim") --> discord rich present
 
     use("vimwiki/vimwiki") --> lets make a wiki
+
+    use { 'nagy135/typebreak.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = function()
+            vim.keymap.set('n', '<leader>tb', require('typebreak').start, { desc = "Typebreak" })
+        end
+    }
 end)

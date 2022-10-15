@@ -21,9 +21,23 @@ require("catppuccin").setup({
 		types = {},
 		operators = { "bold" },
 	},
+    native_lsp = {
+        enabled = true,
+        virtual_text = {
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
+        },
+        underlines = {
+            errors = { "underline" },
+            hints = { "underline" },
+            warnings = { "underline" },
+            information = { "underline" },
+        },
+},
 	integrations = {
 		cmp = true,
-        barbar = true,
 		gitsigns = true,
         dashboard = true,
 		nvimtree = true,
@@ -36,7 +50,7 @@ require("catppuccin").setup({
 	},
     indent_blankline = {
         enabled = true,
-        colored_indent_levels = false,
+        colored_indent_levels = true,
     },
 })
 

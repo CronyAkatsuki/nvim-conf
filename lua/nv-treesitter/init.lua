@@ -3,7 +3,7 @@ require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "python", "bash" },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = false,
+	sync_install = true,
 
     autotag = {
         enable = true,
@@ -11,7 +11,7 @@ require("nvim-treesitter.configs").setup({
 
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = false,
+		additional_vim_regex_highlighting = true
 	},
 	refactor = {
 		highlight_definitions = {

@@ -6,7 +6,7 @@ require("keymaps")
 
 -- plugin settings
 require("nv-autopairs")
-require("nv-barbar")
+require("nv-bufferline")
 require("nv-cmp")
 require("nv-colorizer")
 require("nv-comment")
