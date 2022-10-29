@@ -24,71 +24,44 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-    buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
-require("nvim-lsp-installer").setup({})
+local mason_lspconfig = require("mason-lspconfig")
 
-local servers = {
-    "pyright",
-    "bashls",
-    -- "ccls",
-    "clangd",
-    "taplo",
-    "eslint",
-    "html",
-    "cssls",
-    "jsonls",
-    "hls",
-    "gopls",
-    -- "powershell_es",
-    "yamlls",
-    "vimls"
-}
-for _, lsp in pairs(servers) do
-    require("lspconfig")[lsp].setup({
-        on_attach = on_attach,
-        flags = {
-            -- This will be the default in neovim 0.7+
-            debounce_text_changes = 150,
-        },
-    })
-end
-
---> Sumneko lua specific
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-require("lspconfig").sumneko_lua.setup({
-    on_attach = on_attach,
-    flags = {
-        -- This will be the default in neovim 0.7+
-        debounce_text_changes = 150,
-    },
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = "LuaJIT",
-                -- Setup your lua path
-                path = runtime_path,
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim", "use", "client", "awesome", "screen", "root", "awful", "lain" },
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
+mason_lspconfig.setup({
+    ensure_installed = { "sumneko_lua", "pyright", "clangd", "bashls" }
 })
 
---> rust analyzer specific
-require('rust-tools').setup({})
+mason_lspconfig.setup_handlers {
+    function(server_name)
+        require("lspconfig")[server_name].setup({
+            on_attach = on_attach,
+        })
+    end,
+    ["sumneko_lua"] = function()
+        local runtime_path = vim.split(package.path, ";")
+        table.insert(runtime_path, "lua/?.lua")
+        table.insert(runtime_path, "lua/?/init.lua")
+
+        require("lspconfig").sumneko_lua.setup({
+            on_attach = on_attach,
+            settings = {
+                Lua = {
+                    runtime = {
+                        version = "LuaJIT",
+                        path = runtime_path,
+                    },
+                    diagnostics = {
+                        globals = { "vim", "use" },
+                    },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                    telemetry = {
+                        enable = false,
+                    },
+                },
+            },
+        })
+    end
+}
