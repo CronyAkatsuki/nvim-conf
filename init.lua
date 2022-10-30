@@ -4,6 +4,7 @@ require("settings")
 require("colorscheme")
 require("keymaps")
 require("functions")
+require("diagnostics")
 
 -- plugin settings
 require("nv-autopairs")

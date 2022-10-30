@@ -32,3 +32,5 @@ set.titlestring = "%<%F%=%l/%L - nvim"
 
 set.mouse = "a"
 set.clipboard = "unnamedplus"
+
+set.updatetime = 250
