@@ -56,4 +56,6 @@ return require("packer").startup(function()
     use("vimwiki/vimwiki") --> lets make a wiki
 
     use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }) --> git client
+
+    use('sindrets/diffview.nvim') --> diff view
 end)

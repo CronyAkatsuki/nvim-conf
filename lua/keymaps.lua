@@ -10,6 +10,18 @@ map("n", "<Leader>h", ":set hlsearch!<CR>", opts)
 --> explorer
 map("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
 
+--> diffview
+map("n", "<Leader>gd", ":DiffviewOpen<CR>", opts)
+
+--> neogit
+map("n", "<Leader>gg", ":Neogit<CR>", opts)
+
+--> close buffer
+map("n", "<Leader>qb", ":bd<CR>", opts)
+
+--> close tab
+map("n", "<Leader>qt", ":tabclose<CR>", opts)
+
 --> better indenting
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
