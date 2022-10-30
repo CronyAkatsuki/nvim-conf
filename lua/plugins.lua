@@ -54,4 +54,6 @@ return require("packer").startup(function()
 	use("andweeb/presence.nvim") --> discord rich present
 
     use("vimwiki/vimwiki") --> lets make a wiki
+
+    use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }) --> git client
 end)
