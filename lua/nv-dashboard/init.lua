@@ -31,7 +31,7 @@ db.custom_center = {
     action = 'Telescope find_files find_command=rg,--hidden,--files',
     shortcut = 'SPC f f'},
     {icon = '  ',
-    desc ='File Explorer                            ',
+    desc ='File Explorer                           ',
     action =  'Telescope file_browser',
     shortcut = 'SPC f e'},
     {icon = '  ',
