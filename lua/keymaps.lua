@@ -8,7 +8,7 @@ vim.g.mapleader = " "
 map("n", "<Leader>h", ":set hlsearch!<CR>", opts)
 
 --> explorer
-map("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
+map("n", "<Leader>e", ":Neotree toggle<CR>", opts)
 
 --> diffview
 map("n", "<Leader>gd", ":DiffviewOpen<CR>", opts)

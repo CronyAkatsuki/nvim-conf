@@ -8,7 +8,8 @@ return require("packer").startup(function()
 	use("nvim-lualine/lualine.nvim") --> nice status line
     use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
-	use("kyazdani42/nvim-tree.lua") --> file explorer
+    use("MunifTanjim/nui.nvim")
+	use("nvim-neo-tree/neo-tree.nvim") --> file explorer
 
 	use("neovim/nvim-lspconfig") --> lsp config
 	use("williamboman/mason.nvim") --> installer for the lsp's
@@ -60,4 +61,8 @@ return require("packer").startup(function()
     use('sindrets/diffview.nvim') --> diff view
 
     use('stevearc/overseer.nvim') --> task runner
+
+    use('natecraddock/sessions.nvim') --> simple sessions upgrade
+
+    use('natecraddock/workspaces.nvim') --> simple workspaces
 end)
