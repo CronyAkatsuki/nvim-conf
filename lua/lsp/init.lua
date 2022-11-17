@@ -54,6 +54,19 @@ mason_lspconfig.setup_handlers {
             on_attach = on_attach,
         })
     end,
+    ["pyright"] = function()
+        require("lspconfig").pyright.setup({
+            settings = {
+                python = {
+                    analysis = {
+                        autoSearchPaths = true,
+                        diagnosticMode = "workspace",
+                        useLibraryCodeForTypes = true,
+                    }
+                }
+            }
+        })
+    end,
     ["sumneko_lua"] = function()
         local runtime_path = vim.split(package.path, ";")
         table.insert(runtime_path, "lua/?.lua")

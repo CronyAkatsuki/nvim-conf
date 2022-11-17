@@ -1,33 +1,13 @@
+-- Speedup
+require('impatient')
+
 -- general settings
-require("plugins")
-require("settings")
-require("colorscheme")
-require("keymaps")
-require("functions")
-require("diagnostics")
-
--- plugin settings
-require("nv-autopairs")
-require("nv-bufferline")
-require("nv-cmp")
-require("nv-colorizer")
-require("nv-comment")
-require("nv-dashboard")
-require("nv-gitsigns")
-require("nv-indentline")
-require("nv-lualine")
-require("nv-neogit")
-require("nv-mason")
-require("nv-neo-tree")
-require("nv-overseer")
-require("nv-presence")
-require("nv-telescope")
-require("nv-toggleterm")
-require("nv-treesitter")
-require("nv-whichkey")
-
--- lsp
-require("lsp")
+require("utils.plugins")
+require("utils.colorscheme")
+require("user.builtins")
+require("user.settings")
+require("user.keymaps")
+require("user.functions")
 
 -- vimscript only
 vim.cmd("source ~/.config/nvim/vimscript/functions.vim")
