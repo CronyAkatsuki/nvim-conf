@@ -45,3 +45,9 @@ map('n', '<leader>e', ":NvimTreeToggle<CR>", opts)
 
 -- FTerm keybindings
 map('n', '<leader>t', ':FTermToggle<CR>', opts)
+
+--> diffview
+map("n", "<Leader>gd", ":DiffviewOpen<CR>", opts)
+
+--> neogit
+map("n", "<Leader>gg", ":Neogit<CR>", opts)

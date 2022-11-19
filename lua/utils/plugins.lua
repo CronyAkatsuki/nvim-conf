@@ -38,135 +38,68 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 return packer.startup(function()
-	use "wbthomason/packer.nvim"  --> update itself
+  use "wbthomason/packer.nvim" --> update itself
 
   use "lewis6991/impatient.nvim"  --> Make nvim faster
 	use "fladson/vim-kitty"  --> kitty terminal syntax highlighting
 
-  -- use { "nvim-tree/nvim-tree.lua",
-  --   requires = "nvim-tree/nvim-web-devicons",
-  --   config = function ()
-  --     require("plugins.nvim-tree")
-  --   end
-  -- }
+  use { "catppuccin/nvim", as = "catppuccin" } --> theme
+	use "nvim-lualine/lualine.nvim" --> nice status line
+	use "kyazdani42/nvim-tree.lua" --> file explorer
+  use { "folke/which-key.nvim", config = function () require("which-key").setup() end } --> help for my forgeting brain
+	use { "rcarriga/nvim-notify", config = function () vim.notify = require("notify") end } --> notifications
+  use "glepnir/dashboard-nvim"
 
-  use { "catppuccin/nvim",
-    as = "catppuccin" } --> theme
+  use { "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" } --> nice tabline
 
-  use {'akinsho/bufferline.nvim',
-    event = "BufReadPre",
-    after = "catppuccin",
-    tag = "v3.*",
-    requires = 'nvim-tree/nvim-web-devicons',
-    config = function ()
-      require("plugins.bufferline")
+  use "norcalli/nvim-colorizer.lua" --> colors
+
+	use "williamboman/mason.nvim" --> installer for the lsp's
+  use "williamboman/mason-lspconfig.nvim" --> automatic lsp setups
+	use "neovim/nvim-lspconfig" --> lsp config
+  use { "j-hui/fidget.nvim", config = function () require("fidget").setup() end } --> nice lsp info
+
+	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} --> Treesitter support
+
+	use "lukas-reineke/indent-blankline.nvim" --> indent line
+
+  use "dcampos/nvim-snippy" --> snipperts
+	use "onsails/lspkind-nvim" --> kind icons for completion
+	use "hrsh7th/nvim-cmp" --> Autocompletion plugin
+	use "hrsh7th/cmp-nvim-lsp" --> LSP source for nvim-cmp
+	use "hrsh7th/cmp-buffer" --> Buffer source for nvim-cmp
+	use "hrsh7th/cmp-path" --> Path source for nvim-cmp
+	use "hrsh7th/cmp-cmdline" --> cmdline source for nvim-cmp
+  use "dcampos/cmp-snippy" --> cmp snippy support
+	use "ray-x/cmp-treesitter" --> treesitter autocompletion support
+
+	use "windwp/nvim-autopairs" --> great autopair support
+
+	use "terrortylor/nvim-comment" --> better commenting
+
+	use "lewis6991/gitsigns.nvim" --> git sings to show you what you changed you sneaky little bastard
+
+  use {"vimwiki/vimwiki", config =
+  function ()
+    vim.g.vimwiki_markdown_link_ext = 1
+    vim.g.vimwiki_list = {
+      {
+        path = '~/docs/vimwiki',
+        syntax = 'markdown',
+        ext = '.md'
+      }
+    }
     end
-  }
+  } --> lets make a wiki
 
-  -- use { "nvim-lualine/lualine.nvim",
-  --   after = "catppuccin",
-  --   config = function ()
-  --     require("plugins.lualine")
-  --   end
-  -- } --> status line
+	use "nvim-telescope/telescope-ui-select.nvim" --> telescope picker
+  use { "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" } --> telescope
 
-  --> using BufRead makes them not run until going into input mode or cmdline
-  use { "norcalli/nvim-colorizer.lua",
-    event = "BufReadPre",
-    config = function ()
-      require("plugins.colorizer")
-    end
-  }
-	use {"williamboman/mason.nvim",
-    event = "BufReadPre"
-  } --> installer for the lsp's
-  use {"williamboman/mason-lspconfig.nvim",
-    after = 'mason.nvim',
-    config = function ()
-      require("plugins.mason")
-    end
-  }
-	use {"neovim/nvim-lspconfig",
-    after = "mason-lspconfig.nvim",
-    config = function ()
-      require("lsp")
-      require("user.diagnostics")
-    end
-  } --> lsp config
-  use { 'j-hui/fidget.nvim',
-    after = "nvim-lspconfig",
-    config = function ()
-      require('fidget').setup()
-    end
-  }
+  use "numToStr/FTerm.nvim" -- simple floating terminal
 
-	use { "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    event = "BufRead",
-    config = function ()
-      require("plugins.nvim-treesitter")
-    end
-  } --> Treesitter support
+  use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim", config = function () require("neogit").setup() end } --> git client
 
-	use {"lukas-reineke/indent-blankline.nvim",
-    after = 'nvim-treesitter',
-    config = function ()
-      require("plugins.indent_blankline")
-    end
-  } --> indent line
+  use "sindrets/diffview.nvim" --> diff view
 
-  use {'dcampos/nvim-snippy', event = {'InsertEnter', 'CmdlineEnter'}} --> snipperts
-	use {"onsails/lspkind-nvim", after = 'nvim-snippy'} --> kind icons for completion
-	use {"hrsh7th/nvim-cmp",
-    after = 'lspkind-nvim',
-    config = function ()
-      require("plugins.nvim-cmp")
-    end
-  } --> Autocompletion plugin
-	use {"hrsh7th/cmp-nvim-lsp", after = 'nvim-cmp'} --> LSP source for nvim-cmp
-	use {"hrsh7th/cmp-buffer", after = 'cmp-nvim-lsp'} --> Buffer source for nvim-cmp
-	use {"hrsh7th/cmp-path", after = 'cmp-buffer' } --> Path source for nvim-cmp
-	use {"hrsh7th/cmp-cmdline", after = 'cmp-path'} --> cmdline source for nvim-cmp
-  use {"dcampos/cmp-snippy", after = 'cmp-cmdline'} --> cmp snippy support
-	use {"ray-x/cmp-treesitter", after = 'cmp-snippy'} --> treesitter autocompletion support
-
-	use {"windwp/nvim-autopairs",
-    event = 'InsertCharPre',
-    after = 'nvim-cmp',
-    config = function ()
-      require("plugins.nvim-autopairs")
-    end
-  } --> great autopair support
-
-	use {"terrortylor/nvim-comment",
-    keys = {'<leader>cl', '<leader>c'},
-    config = function ()
-      require('plugins.nvim-comment')
-    end
-  } --> better commenting
-
-	use {"lewis6991/gitsigns.nvim",
-  event = "BufRead",
-  ft = "gitcommit",
-  config = function ()
-    require('plugins.gitsigns')
-  end} --> git sings to show you what you changed you sneaky little bastard
-
-  use {"vimwiki/vimwiki", ft = "markdown"} --> lets make a wiki
-
-	use {"nvim-telescope/telescope-ui-select.nvim", cmd = "Telescope"} --> telescope picker
-  use { "nvim-telescope/telescope.nvim",
-    after = "telescope-ui-select.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function ()
-      require("plugins.telescope")
-    end
-  } --> telescope
-
-  use {"numToStr/FTerm.nvim",
-    cmd = "FTermToggle",
-    config = function ()
-      require("plugins.fterm")
-    end
-  }
+  use "dstein64/vim-startuptime" --> just for fun
 end)

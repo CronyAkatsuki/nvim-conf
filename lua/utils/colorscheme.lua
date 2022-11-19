@@ -34,9 +34,10 @@ require("catppuccin").setup({
     cmp = true,
     gitsigns = true,
     treesitter = true,
+    fidget = true,
     -- markdown = true,
     -- vimwiki = true,
-    -- which_key = true,
+    which_key = true,
   },
   indent_blankline = {
     enabled = true,

@@ -21,7 +21,7 @@ set.smartcase = true
 set.splitbelow = true
 set.splitright = true
 set.wrap = true
-set.softwrap = true
+set.linebreak = true
 set.scrolloff = 8
 set.fileencoding = "utf-8"
 
@@ -47,3 +47,5 @@ set.updatetime = 250
 set.timeoutlen = 250
 
 set.shortmess:append "c"
+
+set.guifont = { "BlexMono Nerd Font", ":h12" }
