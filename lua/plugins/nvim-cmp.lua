@@ -48,7 +48,7 @@ cmp.setup({
 	}, {
 		{ name = "buffer" },
 		{ name = "path" },
-        { name = "treesitter"},
+    { name = "treesitter"},
 	}),
 })
 

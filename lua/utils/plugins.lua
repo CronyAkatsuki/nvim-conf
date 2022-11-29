@@ -79,18 +79,7 @@ return packer.startup(function()
 
 	use "lewis6991/gitsigns.nvim" --> git sings to show you what you changed you sneaky little bastard
 
-  use {"vimwiki/vimwiki", config =
-  function ()
-    vim.g.vimwiki_markdown_link_ext = 1
-    vim.g.vimwiki_list = {
-      {
-        path = '~/docs/vimwiki',
-        syntax = 'markdown',
-        ext = '.md'
-      }
-    }
-    end
-  } --> lets make a wiki
+  use "jakewvincent/mkdnflow.nvim"
 
 	use "nvim-telescope/telescope-ui-select.nvim" --> telescope picker
   use { "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" } --> telescope

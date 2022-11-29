@@ -2,7 +2,7 @@ local set = vim.opt
 
 set.backup = false
 set.cmdheight = 2
-set.conceallevel = 0
+set.conceallevel = 2
 set.pumheight = 10
 set.swapfile = false
 set.undofile = true
