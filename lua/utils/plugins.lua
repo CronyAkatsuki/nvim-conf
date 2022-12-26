@@ -91,4 +91,11 @@ return packer.startup(function()
   use "sindrets/diffview.nvim" --> diff view
 
   use "dstein64/vim-startuptime" --> just for fun
+
+  use {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+  }
 end)

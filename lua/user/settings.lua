@@ -37,8 +37,8 @@ set.syntax = "on"
 set.hidden = true
 set.completeopt = { "menuone", "noselect" }
 
-set.title = true
-set.titlestring = "%<%F%=%l/%L - nvim"
+-- set.title = true
+-- set.titlestring = "%<%F%=%l/%L - nvim"
 
 set.mouse = "a"
 set.clipboard = "unnamedplus"
