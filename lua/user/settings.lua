@@ -47,5 +47,3 @@ set.updatetime = 250
 set.timeoutlen = 250
 
 set.shortmess:append "c"
-
-set.guifont = { "BlexMono Nerd Font", ":h12" }

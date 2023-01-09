@@ -9,6 +9,7 @@ require("user.diagnostics")
 require("user.functions")
 require("user.keymaps")
 require("user.settings")
+require("user.neovide")
 
 -- plgins
 require("plugins.bufferline")

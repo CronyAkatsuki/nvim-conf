@@ -81,7 +81,7 @@ mason_lspconfig.setup_handlers {
                         path = runtime_path,
                     },
                     diagnostics = {
-                        globals = { "vim", "use" },
+                        globals = { "vim", "use", "tag", "screen", "awesome", "client", "root" },
                     },
                     workspace = {
                         library = vim.api.nvim_get_runtime_file("", true),
