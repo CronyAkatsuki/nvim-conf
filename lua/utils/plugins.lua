@@ -48,7 +48,7 @@ return packer.startup(function()
 	use "kyazdani42/nvim-tree.lua" --> file explorer
   use { "folke/which-key.nvim", config = function () require("which-key").setup() end } --> help for my forgeting brain
 	use { "rcarriga/nvim-notify", config = function () vim.notify = require("notify") end } --> notifications
-  use "glepnir/dashboard-nvim"
+  use {"glepnir/dashboard-nvim", event = 'VimEnter', config = function () require("plugins.dashboard") end }
 
   use { "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" } --> nice tabline
 

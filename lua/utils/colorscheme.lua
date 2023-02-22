@@ -1,4 +1,5 @@
 require("catppuccin").setup({
+  flavour = "frappe",
   transparent_background = false,
   term_colors = true,
   styles = {

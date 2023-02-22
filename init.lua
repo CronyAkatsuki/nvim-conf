@@ -14,7 +14,6 @@ require("user.neovide")
 -- plgins
 require("plugins.bufferline")
 require("plugins.colorizer")
-require("plugins.dashboard")
 require("plugins.fterm")
 require("plugins.gitsigns")
 require("plugins.indent_blankline")
