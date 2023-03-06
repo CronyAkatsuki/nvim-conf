@@ -45,7 +45,7 @@ end
 local mason_lspconfig = require("mason-lspconfig")
 
 mason_lspconfig.setup({
-    ensure_installed = { "sumneko_lua", "pyright", "clangd", "bashls" }
+    ensure_installed = { "lua_ls", "pyright", "clangd", "bashls" }
 })
 
 mason_lspconfig.setup_handlers {
@@ -67,12 +67,12 @@ mason_lspconfig.setup_handlers {
             }
         })
     end,
-    ["sumneko_lua"] = function()
+    ["lua_ls"] = function()
         local runtime_path = vim.split(package.path, ";")
         table.insert(runtime_path, "lua/?.lua")
         table.insert(runtime_path, "lua/?/init.lua")
 
-        require("lspconfig").sumneko_lua.setup({
+        require("lspconfig").lua_ls.setup({
             on_attach = on_attach,
             settings = {
                 Lua = {
