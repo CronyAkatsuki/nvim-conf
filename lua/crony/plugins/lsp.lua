@@ -77,11 +77,8 @@ return {
             return {
                 root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git"),
                 sources = {
-                    nls.builtins.formatting.fish_indent,
-                    nls.builtins.diagnostics.fish,
                     nls.builtins.formatting.stylua,
                     nls.builtins.formatting.shfmt,
-                    -- nls.builtins.diagnostics.flake8,
                 },
             }
         end,
@@ -118,6 +115,7 @@ return {
 	{
 		"j-hui/fidget.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
+        event = { "BufReadPre", "BufNewFile" },
 		tag = "legacy",
 		config = true,
 	},

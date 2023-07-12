@@ -78,6 +78,9 @@ return {
 						end
 					end),
 
+					["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+					["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+
 					-- scroll up and down in the completion documentation
 					["<C-u>"] = cmp.mapping.scroll_docs(-5),
 					["<C-d>"] = cmp.mapping.scroll_docs(5),

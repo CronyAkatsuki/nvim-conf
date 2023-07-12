@@ -54,11 +54,12 @@ return {
                             "compile_commands.json",
                             "compile_flags.txt",
                             "configure.ac",
+                            ".clang-format",
                             ".git"
                         )(...)
                     end,
                     capabilities = {
-                        offsetEncoding = { "utf-16" },
+                        offsetEncoding = { "utf-8" },
                     },
                     cmd = {
                         "clangd",
@@ -90,16 +91,6 @@ return {
     {
         "mfussenegger/nvim-dap",
         optional = true,
-        dependencies = {
-            -- Ensure C/C++ debugger and lsp are installed
-            "williamboman/mason.nvim",
-            optional = true,
-            opts = function(_, opts)
-                if type(opts.ensure_installed) == "table" then
-                    vim.list_extend(opts.ensure_installed, { "codelldb", "clangd" })
-                end
-            end,
-        },
         opts = function()
             local dap = require("dap")
             if not dap.adapters["codelldb"] then
@@ -135,6 +126,16 @@ return {
                         cwd = "${workspaceFolder}",
                     },
                 }
+            end
+        end,
+    },
+    {
+        -- Ensure C/C++ debugger and lsp are installed
+        "williamboman/mason.nvim",
+        optional = true,
+        opts = function(_, opts)
+            if type(opts.ensure_installed) == "table" then
+                vim.list_extend(opts.ensure_installed, { "codelldb", "clangd", "clang-format" })
             end
         end,
     },
