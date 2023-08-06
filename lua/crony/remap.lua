@@ -1,8 +1,6 @@
 local key = vim.keymap.set
 
 vim.g.mapleader = " "
-key("n", "<leader>pv", vim.cmd.Ex, { desc = "Open NetRW" })
-
 key("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected text up" })
 key("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected text down" })
 
@@ -38,9 +36,6 @@ key("n", "<C-Right>", ":vertical resize +2<CR>")
 -- Navigate buffers
 key("n", "<S-l>", ":bnext<CR>")
 key("n", "<S-h>", ":bprevious<CR>")
-
---> close tab
-key("n", "<Leader>qt", ":tabclose<CR>")
 
 --> better indenting
 key("v", "<", "<gv")
