@@ -1,7 +1,7 @@
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
-	term_colors = true,
+    lazy=false,
 	priority = 1000,
 	opts = {
 		styles = {
@@ -15,7 +15,7 @@ return {
 			numbers = { "bold" },
 			booleans = { "italic" },
 			properties = { "italic" },
-			types = { "undercurl" },
+			types = { "underline" },
 			operators = { "bold" },
 		},
 		flavour = "frappe",
@@ -27,7 +27,6 @@ return {
 			harpoon = true,
 			indent_blankline = {
 				enabled = true,
-				colored_indent_levels = false,
 			},
 			markdown = true,
 			mason = true,
@@ -46,10 +45,10 @@ return {
 					information = { "italic" },
 				},
 				underlines = {
-					errors = { "underline" },
-					hints = { "underline" },
-					warnings = { "underline" },
-					information = { "underline" },
+					errors = { "undercurl" },
+					hints = { "undercurl" },
+					warnings = { "undercurl" },
+					information = { "undercurl" },
 				},
 			},
 			notify = true,
