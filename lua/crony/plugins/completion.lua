@@ -28,7 +28,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "VeryLazy",
+		event = "VimEnter",
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-cmdline",
