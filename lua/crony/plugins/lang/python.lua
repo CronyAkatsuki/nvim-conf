@@ -18,16 +18,7 @@ return {
 		end,
 	},
 	{
-		"jay-babu/mason-nvim-dap.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
-				"python",
-			})
-		end,
-	},
-	{
 		"jose-elias-alvarez/null-ls.nvim",
-		ft = { "python" },
 		opts = function(_, opts)
 			local nls = require("null-ls")
 			if type(opts.sources) == "table" then

@@ -31,7 +31,7 @@ opt.smartcase = true
 opt.splitbelow = true
 opt.splitright = true
 
-opt.wrap = false
+opt.wrap = true
 
 opt.swapfile = false
 opt.backup = false
@@ -46,7 +46,7 @@ opt.scrolloff = 8
 opt.signcolumn = "yes"
 opt.isfname:append("@-@")
 
-opt.wildmode = "longest:full,full" -- Command-line completion mode
+opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 
 opt.updatetime = 50

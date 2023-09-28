@@ -29,7 +29,7 @@ return {
 					local opts = { buffer = event.buf }
 
 					vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-					vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+					vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 					vim.keymap.set("n", "<leader>vws", "<cmd> lua vim.lsp.buf.workspace_symbol()<cr>", opts)
 					vim.keymap.set("n", "<leader>vd", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 					vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
@@ -37,7 +37,7 @@ return {
 					vim.keymap.set("n", "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 					vim.keymap.set("n", "<leader>vrr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 					vim.keymap.set("n", "<leader>vrn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-					vim.keymap.set("n", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+					vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 				end,
 			})
 
@@ -85,8 +85,6 @@ return {
 				root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git"),
 				sources = {
 					nls.builtins.formatting.stylua,
-					nls.builtins.formatting.shfmt,
-					nls.builtins.formatting.xmlformat,
 				},
 			}
 		end,
@@ -98,8 +96,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"stylua",
-				"shfmt",
-				-- "flake8",
+                "lua-language-server"
 			},
 		},
 		config = function(_, opts)
