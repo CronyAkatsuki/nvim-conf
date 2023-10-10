@@ -96,7 +96,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"stylua",
-                "lua-language-server"
+				"lua-language-server",
 			},
 		},
 		config = function(_, opts)
@@ -122,6 +122,10 @@ return {
 		dependencies = { "neovim/nvim-lspconfig" },
 		event = { "BufReadPre", "BufNewFile" },
 		tag = "legacy",
-		config = true,
+		opts = {
+			window = {
+				blend = 0,
+			},
+		},
 	},
 }

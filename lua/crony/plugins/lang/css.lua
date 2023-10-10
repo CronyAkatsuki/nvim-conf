@@ -5,7 +5,7 @@ return {
 		optional = true,
 		opts = function(_, opts)
 			if type(opts.ensure_installed) == "table" then
-				vim.list_extend(opts.ensure_installed, { "css-lsp", "stylelint", "prettier" })
+				vim.list_extend(opts.ensure_installed, { "css-lsp", "prettier" })
 			end
 		end,
 	},
@@ -22,7 +22,7 @@ return {
 		opts = function(_, opts)
 			local nls = require("null-ls")
 			if type(opts.sources) == "table" then
-				vim.list_extend(opts.sources, { nls.builtins.formatting.prettier, nls.builtins.diagnostics.stylelint })
+				vim.list_extend(opts.sources, { nls.builtins.formatting.prettier })
 			end
 		end,
 	},

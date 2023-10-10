@@ -1,7 +1,7 @@
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
-    lazy=false,
+	lazy = false,
 	priority = 1000,
 	opts = {
 		styles = {
@@ -52,10 +52,13 @@ return {
 				},
 			},
 			notify = true,
-			telescope = true,
+			telescope = {
+				enabled = true,
+			},
 			lsp_trouble = true,
 			treesitter = true,
 			which_key = true,
+			fidget = true,
 		},
 	},
 }

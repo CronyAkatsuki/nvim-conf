@@ -15,10 +15,15 @@ key("x", "<leader>p", [["_dP]], { desc = "Paste while keeping the registry" })
 
 key("n", "<leader>f", vim.lsp.buf.format, { desc = "Format with lsp" })
 
-key("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+key(
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Simple find and replace of current word" }
+)
 
 key("n", "<leader><leader>", function()
-    vim.cmd("so")
+	vim.cmd("so")
 end)
 
 -- Better window navigation
@@ -37,6 +42,17 @@ key("n", "<C-Right>", ":vertical resize +2<CR>")
 key("n", "<S-l>", ":bnext<CR>")
 key("n", "<S-h>", ":bprevious<CR>")
 
---> better indenting
+-- better indenting
 key("v", "<", "<gv")
 key("v", ">", ">gv")
+
+-- Plugin manager
+key("n", "<leader>pi", function()
+	require("lazy").install()
+end, { desc = "Plugin install" })
+key("n", "<leader>ps", function()
+	require("lazy").home()
+end, { desc = "Plugin status" })
+key("n", "<leader>pS", function()
+	require("lazy").sync()
+end, { desc = "Plugin Sync" })
