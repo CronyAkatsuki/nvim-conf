@@ -1,6 +1,6 @@
 return {
 	"stevearc/dressing.nvim",
-	lazy = true,
+	lazy = false,
 	opts = {
 		input = { default_prompt = "➤ " },
 		select = { backend = { "telescope", "builtin" } },

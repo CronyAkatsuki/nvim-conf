@@ -5,13 +5,14 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable("make") == 1, build = "make" },
 	},
 	cmd = "Telescope",
+	ft = "Mason",
 	opts = function()
 		local actions = require("telescope.actions")
 		return {
 			defaults = {
 				git_worktrees = vim.g.git_worktrees,
-				prompt_prefix = "❯",
-				selection_caret = "❯",
+				prompt_prefix = "➤ ",
+				selection_caret = "➤ ",
 				path_display = { "truncate" },
 				sorting_strategy = "ascending",
 				layout_config = {
