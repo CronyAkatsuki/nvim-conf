@@ -25,20 +25,25 @@ return {
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				desc = "LSP actions",
-				callback = function(event)
-					local opts = { buffer = event.buf }
-
-					vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-					vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-					vim.keymap.set("n", "<leader>vws", "<cmd> lua vim.lsp.buf.workspace_symbol()<cr>", opts)
-					vim.keymap.set("n", "<leader>vd", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-					vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-					vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-					vim.keymap.set("n", "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-					vim.keymap.set("n", "<leader>vrr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-					vim.keymap.set("n", "<leader>vrn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-					vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-				end,
+        -- stylua: ignore
+        callback = function(event)
+          vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { buffer = event.buf, desc = "" })
+          vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<cr>",
+            { buffer = event.buf, desc = "Simple Hover Info" })
+          vim.keymap.set("n", "<leader>vd", "<cmd>lua vim.diagnostic.open_float()<cr>", { buffer = event.buf, desc = "" })
+          vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+            { buffer = event.buf, desc = "Diagnostics Preview" })
+          vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>",
+            { buffer = event.buf, desc = "Diagnostics Next" })
+          vim.keymap.set("n", "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>",
+            { buffer = event.buf, desc = "Run Code Actions" })
+          vim.keymap.set("n", "<leader>vrr", "<cmd>lua vim.lsp.buf.references()<cr>",
+            { buffer = event.buf, desc = "List References" })
+          vim.keymap.set("n", "<leader>vrn", "<cmd>lua vim.lsp.buf.rename()<cr>",
+            { buffer = event.buf, desc = "Rename whatever this does" })
+          vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<cr>",
+            { buffer = event.buf, desc = "Check hover help" })
+        end,
 			})
 
 			require("mason-lspconfig").setup({})
@@ -48,16 +53,6 @@ return {
 				require("lspconfig")[server_name].setup({})
 			end
 
-			local signs = {
-				{ name = "DiagnosticSignError", text = "" },
-				{ name = "DiagnosticSignWarn", text = "" },
-				{ name = "DiagnosticSignHint", text = "" },
-				{ name = "DiagnosticSignInfo", text = "" },
-			}
-
-			for _, sign in ipairs(signs) do
-				vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-			end
 
 			vim.diagnostic.config({
 				signs = true,
@@ -76,7 +71,7 @@ return {
 		end,
 	},
 	{
-		"jose-elias-alvarez/null-ls.nvim",
+		"nvimtools/none-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = { "mason.nvim" },
 		opts = function()

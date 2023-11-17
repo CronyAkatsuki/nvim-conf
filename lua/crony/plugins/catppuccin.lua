@@ -34,7 +34,6 @@ return {
 			neotree = true,
 			dap = {
 				enabled = true,
-				enable_ui = true, -- enable nvim-dap-ui
 			},
 			native_lsp = {
 				enabled = true,
@@ -61,4 +60,8 @@ return {
 			fidget = true,
 		},
 	},
+	config = function(_, opts)
+		require("catppuccin").setup(opts)
+		vim.cmd.colorscheme("catppuccin")
+	end,
 }

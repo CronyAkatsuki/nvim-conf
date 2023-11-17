@@ -16,6 +16,7 @@ require("lazy").setup({
 		{ import = "crony.plugins" },
 		{ import = "crony.plugins.lang.clang" },
 		{ import = "crony.plugins.lang.css" },
+		{ import = "crony.plugins.lang.go" },
 		{ import = "crony.plugins.lang.html" },
 		{ import = "crony.plugins.lang.javascript" },
 		{ import = "crony.plugins.lang.python" },

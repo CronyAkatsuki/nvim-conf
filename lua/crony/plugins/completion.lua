@@ -133,11 +133,53 @@ return {
 					{ name = "cmdline" },
 				}),
 			})
+
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			local handlers = require("nvim-autopairs.completion.handlers")
+
+			cmp.event:on(
+				"confirm_done",
+				cmp_autopairs.on_confirm_done({
+					filetypes = {
+						-- "*" is a alias to all filetypes
+						["*"] = {
+							["("] = {
+								kind = {
+									cmp.lsp.CompletionItemKind.Function,
+									cmp.lsp.CompletionItemKind.Method,
+								},
+								handler = handlers["*"],
+							},
+						},
+						lua = {
+							["("] = {
+								kind = {
+									cmp.lsp.CompletionItemKind.Function,
+									cmp.lsp.CompletionItemKind.Method,
+								},
+								---@param char string
+								---@param item table item completion
+								---@param bufnr number buffer number
+								---@param rules table
+								---@param commit_character table<string>
+								handler = function(char, item, bufnr, rules, commit_character)
+									-- Your handler function. Inpect with print(vim.inspect{char, item, bufnr, rules, commit_character})
+								end,
+							},
+						},
+						-- Disable for anoying filetypes
+						tex = false,
+						bash = false,
+						sh = false,
+						zsh = false,
+					},
+				})
+			)
 		end,
 	},
 	{
-		"echasnovski/mini.pairs",
-		event = "VeryLazy",
-		opts = {}, -- this is equalent to setup({}) function
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {},
 	},
 }

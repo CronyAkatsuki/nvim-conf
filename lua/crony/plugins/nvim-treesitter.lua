@@ -7,7 +7,7 @@ return {
 	event = { "BufReadPost", "BufNewFile" },
 	cmd = { "TSUpdateSync" },
 	opts = {
-		ensure_installed = { "c", "lua", "bash" },
+		ensure_installed = { "lua" },
 		sync_install = true,
 		autotag = {
 			enable = true,
@@ -18,6 +18,10 @@ return {
 		},
 		indent = { enable = true },
 		auto_install = true,
+		context_commentstring = {
+			enable = true,
+			enable_autocmd = false,
+		},
 	},
 	config = function(_, opts)
 		require("nvim-treesitter.configs").setup(opts)
