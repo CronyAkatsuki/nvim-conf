@@ -3,7 +3,7 @@ return {
 	opts = {
 		modules = {
 			bib = false,
-			folds = false,
+			folds = true,
 		},
 	},
 	ft = "markdown",

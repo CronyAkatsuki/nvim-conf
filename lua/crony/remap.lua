@@ -13,14 +13,8 @@ key("n", "N", "Nzzzv", { desc = "Keep cursor in middle with search" })
 -- greatest remap ever
 key("x", "<leader>p", [["_dP]], { desc = "Paste while keeping the registry" })
 
-key("n", "<leader>f", vim.lsp.buf.format, { desc = "Format with lsp" })
-
-key(
-	"n",
-	"<leader>s",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "Simple find and replace of current word" }
-)
+-- format with lsp
+key("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format with lsp" })
 
 key("n", "<leader><leader>", function()
 	vim.cmd("so")
@@ -37,10 +31,6 @@ key("n", "<C-Up>", ":resize -2<CR>")
 key("n", "<C-Down>", ":resize +2<CR>")
 key("n", "<C-Left>", ":vertical resize -2<CR>")
 key("n", "<C-Right>", ":vertical resize +2<CR>")
-
--- Navigate buffers
-key("n", "<S-l>", ":bnext<CR>")
-key("n", "<S-h>", ":bprevious<CR>")
 
 -- better indenting
 key("v", "<", "<gv")

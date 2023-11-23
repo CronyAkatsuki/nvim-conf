@@ -78,12 +78,9 @@ opt.winblend = 0
 opt.wildoptions = "pum"
 opt.pumblend = 5
 opt.pumheight = 10
-opt.background = "dark"
 
 opt.updatetime = 50
 opt.timeoutlen = 500
-
-opt.colorcolumn = "80"
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"

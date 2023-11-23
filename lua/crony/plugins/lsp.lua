@@ -27,21 +27,23 @@ return {
 				desc = "LSP actions",
         -- stylua: ignore
         callback = function(event)
-          vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { buffer = event.buf, desc = "" })
+          vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>",
+            { buffer = event.buf, desc = "Go to definition" })
           vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<cr>",
             { buffer = event.buf, desc = "Simple Hover Info" })
-          vim.keymap.set("n", "<leader>vd", "<cmd>lua vim.diagnostic.open_float()<cr>", { buffer = event.buf, desc = "" })
-          vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+          vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<cr>",
             { buffer = event.buf, desc = "Diagnostics Preview" })
-          vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>",
+          vim.keymap.set("n", "l[", "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+            { buffer = event.buf, desc = "Diagnostics previous" })
+          vim.keymap.set("n", "l]", "<cmd>lua vim.diagnostic.goto_next()<cr>",
             { buffer = event.buf, desc = "Diagnostics Next" })
-          vim.keymap.set("n", "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>",
+          vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>",
             { buffer = event.buf, desc = "Run Code Actions" })
-          vim.keymap.set("n", "<leader>vrr", "<cmd>lua vim.lsp.buf.references()<cr>",
+          vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>",
             { buffer = event.buf, desc = "List References" })
-          vim.keymap.set("n", "<leader>vrn", "<cmd>lua vim.lsp.buf.rename()<cr>",
+          vim.keymap.set("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>",
             { buffer = event.buf, desc = "Rename whatever this does" })
-          vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<cr>",
+          vim.keymap.set("n", "<leader>lh", "<cmd>lua vim.lsp.buf.signature_help()<cr>",
             { buffer = event.buf, desc = "Check hover help" })
         end,
 			})
@@ -52,7 +54,6 @@ return {
 			for _, server_name in ipairs(get_servers()) do
 				require("lspconfig")[server_name].setup({})
 			end
-
 
 			vim.diagnostic.config({
 				signs = true,
@@ -87,7 +88,7 @@ return {
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
-		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+		keys = { { "<leader>pm", "<cmd>Mason<cr>", desc = "Mason" } },
 		opts = {
 			ensure_installed = {
 				"stylua",

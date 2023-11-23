@@ -36,60 +36,11 @@ return {
 	end,
 	keys = {
 		{
-			"<leader>gb",
-			function()
-				require("telescope.builtin").git_branches({ use_file_path = true })
-			end,
-			desc = "Git Branches",
-		},
-		{
-			"<leader>gc",
-			function()
-				require("telescope.builtin").git_commits({ use_file_path = true })
-			end,
-			desc = "Git Commits (Repository)",
-		},
-		{
-			"<leader>gC",
-			function()
-				require("telescope.builtin").git_bcommits({ use_file_path = true })
-			end,
-			desc = "Git Commits (Current File)",
-		},
-		{
-			"<leader>gt",
-			function()
-				require("telescope.builtin").git_status({ use_file_path = true })
-			end,
-			desc = "Git status",
-		},
-		{
-			"<leader>f/",
-			function()
-				require("telescope.builtin").current_buffer_fuzzy_find()
-			end,
-			desc = "Find words in current buffer",
-		},
-		{
 			"<leader>fb",
 			function()
 				require("telescope.builtin").buffers()
 			end,
 			desc = "Find buffers",
-		},
-		{
-			"<leader>fc",
-			function()
-				require("telescope.builtin").grep_string()
-			end,
-			desc = "Find word under cursor",
-		},
-		{
-			"<leader>fC",
-			function()
-				require("telescope.builtin").commands()
-			end,
-			desc = "Find Commands",
 		},
 		{
 			"<leader>ff",
@@ -104,27 +55,6 @@ return {
 				require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
 			end,
 			desc = "Find All Files",
-		},
-		{
-			"<leader>fh",
-			function()
-				require("telescope.builtin").help_tags()
-			end,
-			desc = "Find Help",
-		},
-		{
-			"<leader>fk",
-			function()
-				require("telescope.builtin").keymaps()
-			end,
-			desc = "Find Keymaps",
-		},
-		{
-			"<leader>fm",
-			function()
-				require("telescope.builtin").man_pages()
-			end,
-			desc = "Find Man Pages",
 		},
 		{
 			"<leader>fw",
