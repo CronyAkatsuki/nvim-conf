@@ -413,15 +413,6 @@ return {
       DefaultStatusline,
     }
 
-		-- buffer number
-		local TablineBufnr = {
-			provider = function(self)
-				return tostring(self.bufnr) .. ". "
-			end,
-			hl = "Comment",
-		}
-
-		-- we redefine the filename component, as we probably only want the tail and not the relative path
 		local TablineFileName = {
 			provider = function(self)
 				-- self.filename will be defined later, just keep looking at the example!
@@ -434,9 +425,6 @@ return {
 			end,
 		}
 
-		-- this looks exactly like the FileFlags component that we saw in
-		-- #crash-course-part-ii-filename-and-friends, but we are indexing the bufnr explicitly
-		-- also, we are adding a nice icon for terminal buffers.
 		local TablineFileFlags = {
 			{
 				condition = function(self)
@@ -461,7 +449,6 @@ return {
 			},
 		}
 
-		-- Here the filename block finally comes together
 		local TablineFileNameBlock = {
 			init = function(self)
 				self.filename = vim.api.nvim_buf_get_name(self.bufnr)
@@ -473,14 +460,12 @@ return {
 					return "background"
 				end
 			end,
-			TablineBufnr,
 			FileIcon,
 			TablineFileName,
 			TablineFileFlags,
 		}
 
-		-- The final touch!
-		local TablineBufferBlock = utils.surround({ "█", "█" }, function(self)
+		local TablineBufferBlock = utils.surround({ "██", "██" }, function(self)
 			if self.is_active then
 				return "bright_bg"
 			else

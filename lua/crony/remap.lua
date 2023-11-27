@@ -1,6 +1,7 @@
 local key = vim.keymap.set
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ";"
 key("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected text up" })
 key("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected text down" })
 

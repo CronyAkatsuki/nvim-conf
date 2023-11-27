@@ -7,6 +7,7 @@ return {
 			{ "folke/neodev.nvim", opts = {} },
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
+			"folke/trouble.nvim",
 			{
 				"williamboman/mason.nvim",
 				build = function()
@@ -33,9 +34,9 @@ return {
             { buffer = event.buf, desc = "Simple Hover Info" })
           vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<cr>",
             { buffer = event.buf, desc = "Diagnostics Preview" })
-          vim.keymap.set("n", "l[", "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+          vim.keymap.set("n", "[l", "<cmd>lua vim.diagnostic.goto_prev()<cr>",
             { buffer = event.buf, desc = "Diagnostics previous" })
-          vim.keymap.set("n", "l]", "<cmd>lua vim.diagnostic.goto_next()<cr>",
+          vim.keymap.set("n", "]l", "<cmd>lua vim.diagnostic.goto_next()<cr>",
             { buffer = event.buf, desc = "Diagnostics Next" })
           vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>",
             { buffer = event.buf, desc = "Run Code Actions" })
